@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>QUEUE - Admin Panel</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div class="role">ADMIN VIEW</div>
+  <header>
+    <a href="index.html" class="logo"><img src="images/logo.svg" alt="QUEUE logo">QUEUE</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="my_bookings.html">My Bookings</a>
+      <a href="owner.html">Dashboard</a>
+      <a href="admin.html" class="current">Admin</a>
+      <a href="login.html">Log In</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Admin Panel</h1>
+
+    <h2>New Businesses Waiting for Approval</h2>
+    <!-- DB: businesses where status = 'pending'. Buttons will update businesses.status -->
+    <table>
+      <tr><th scope="col">Business</th><th scope="col">Owner</th><th scope="col">Category</th><th scope="col"></th></tr>
+      <tr><td>Bloom Nail Studio</td><td>K. Tran</td><td>Salon</td><td><button type="button" class="btn blue" onclick="reviewBusiness(this, 'approved')">Approve</button> <button type="button" class="btn" onclick="reviewBusiness(this, 'rejected')">Reject</button></td></tr>
+      <tr><td>Iron Yard Gym</td><td>R. Brooks</td><td>Fitness</td><td><button type="button" class="btn blue" onclick="reviewBusiness(this, 'approved')">Approve</button> <button type="button" class="btn" onclick="reviewBusiness(this, 'rejected')">Reject</button></td></tr>
+    </table>
+
+    <h2>Users</h2>
+    <!-- DB: users table. Suspend will update users.status -->
+    <table>
+      <tr><th scope="col">Name</th><th scope="col">Email</th><th scope="col">Role</th><th scope="col">Status</th><th scope="col"></th></tr>
+      <tr><td>Alex Rivera</td><td>alex@email.com</td><td>Customer</td><td class="status active">Active</td><td><button type="button" class="btn" onclick="toggleUser(this)">Suspend</button></td></tr>
+      <tr><td>Sam Ortiz</td><td>sam@freshcutz.com</td><td>Owner</td><td class="status active">Active</td><td><button type="button" class="btn" onclick="toggleUser(this)">Suspend</button></td></tr>
+      <tr><td>Jordan Lee</td><td>jlee@email.com</td><td>Customer</td><td class="status active">Active</td><td><button type="button" class="btn" onclick="toggleUser(this)">Suspend</button></td></tr>
+    </table>
+  </main>
+
+  <footer>QUEUE - CIS 444 Group 10 - Clemens, Delacruz, Dollete, Ohaechesi</footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>QUEUE - Book</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div class="role">CUSTOMER VIEW</div>
+  <header>
+    <a href="index.html" class="logo"><img src="images/logo.svg" alt="QUEUE logo">QUEUE</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="my_bookings.html">My Bookings</a>
+      <a href="owner.html">Dashboard</a>
+      <a href="admin.html">Admin</a>
+      <a href="login.html">Log In</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="box row">
+      <div class="thumb">FC</div>
+      <div class="grow">
+        <h1>Fresh Cutz Barbershop</h1>
+        <p class="muted">Barber - 123 Main St - Mon-Sat 9 AM to 7 PM</p>
+      </div>
+    </div>
+
+    <!-- DB: php/book.php adds a row to the appointments table -->
+    <form class="row top" action="php/book.php" method="post" onsubmit="return checkBooking()">
+      <input type="hidden" name="business_id" value="1">
+      <input type="hidden" name="time" id="time">
+
+      <div class="box grow">
+        <!-- DB: services for this business come from the services table -->
+        <label for="service">1. Service</label>
+        <select id="service" name="service_id" onchange="updateSummary()">
+          <option value="">Choose a service</option>
+          <option value="1">Haircut - 30 min - $30</option>
+          <option value="2">Beard Trim - 15 min - $15</option>
+          <option value="3">Kids Cut - 20 min - $20</option>
+        </select>
+
+        <label for="date">2. Date</label>
+        <input type="date" id="date" name="date" onchange="updateSummary()">
+
+        <!-- DB: open times = business hours minus booked appointments -->
+        <label>3. Open times</label>
+        <div>
+          <button type="button" class="btn slot" onclick="pickTime(this)">9:00 AM</button>
+          <button type="button" class="btn slot" onclick="pickTime(this)">10:00 AM</button>
+          <button type="button" class="btn slot" disabled>11:30 AM</button>
+          <button type="button" class="btn slot" onclick="pickTime(this)">1:00 PM</button>
+          <button type="button" class="btn slot" onclick="pickTime(this)">3:30 PM</button>
+          <button type="button" class="btn slot" onclick="pickTime(this)">5:00 PM</button>
+        </div>
+
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+      </div>
+
+      <div class="box summary">
+        <h2>Summary</h2>
+        <p>Service: <span id="sumService">none</span></p>
+        <p>Date: <span id="sumDate">none</span></p>
+        <p>Time: <span id="sumTime">none</span></p>
+        <p class="error" id="bookError"></p>
+        <input type="submit" class="btn blue" value="Confirm Booking">
+      </div>
+    </form>
+  </main>
+
+  <footer>QUEUE - CIS 444 Group 10 - Clemens, Delacruz, Dollete, Ohaechesi</footer>
+</body>
+</html>

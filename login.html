@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>QUEUE - Log In / Sign Up</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div class="role">PUBLIC VIEW</div>
+  <header>
+    <a href="index.html" class="logo"><img src="images/logo.svg" alt="QUEUE logo">QUEUE</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="my_bookings.html">My Bookings</a>
+      <a href="owner.html">Dashboard</a>
+      <a href="admin.html">Admin</a>
+      <a href="login.html" class="current">Log In</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="row top">
+      <!-- DB: php/login.php checks the users table -->
+      <form class="box grow" action="php/login.php" method="post" onsubmit="return checkLogin()">
+        <h2>Log In</h2>
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" name="email">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password">
+        <p class="error" id="loginError"></p>
+        <input type="submit" class="btn blue" value="Log In">
+        <p class="muted">You will go to the main page for your account type.</p>
+      </form>
+
+      <!-- DB: php/register.php adds a row to the users table -->
+      <form class="box grow" action="php/register.php" method="post" onsubmit="return checkSignup()">
+        <h2>Sign Up</h2>
+        <label for="accountType">Account type</label>
+        <select id="accountType" name="role">
+          <option value="customer">Customer</option>
+          <option value="owner">Business Owner</option>
+        </select>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" name="email">
+        <label for="signupPassword">Password (at least 8 characters)</label>
+        <input type="password" id="signupPassword" name="password">
+        <p class="error" id="signupError"></p>
+        <input type="submit" class="btn blue" value="Create Account">
+      </form>
+    </div>
+  </main>
+
+  <footer>QUEUE - CIS 444 Group 10 - Clemens, Delacruz, Dollete, Ohaechesi</footer>
+</body>
+</html>

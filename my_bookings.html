@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>QUEUE - My Bookings</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div class="role">CUSTOMER VIEW</div>
+  <header>
+    <a href="index.html" class="logo"><img src="images/logo.svg" alt="QUEUE logo">QUEUE</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="my_bookings.html" class="current">My Bookings</a>
+      <a href="owner.html">Dashboard</a>
+      <a href="admin.html">Admin</a>
+      <a href="login.html">Log In</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>My Bookings</h1>
+
+    <!-- DB: appointments for the logged-in customer (joined with businesses and services) -->
+    <table>
+      <tr><th scope="col">Business</th><th scope="col">Service</th><th scope="col">Date and Time</th><th scope="col">Status</th><th scope="col"></th></tr>
+      <tr><td>Fresh Cutz Barbershop</td><td>Haircut</td><td>Nov 19, 3:30 PM</td><td class="status confirmed">Confirmed</td><td><a class="btn" href="book.html?appointment=101">Change</a> <button type="button" class="btn" onclick="cancelBooking(this)">Cancel</button></td></tr>
+      <tr><td>Luna's Kitchen</td><td>Table for 4</td><td>Nov 20, 7:00 PM</td><td class="status pending">Pending</td><td><a class="btn" href="book.html?appointment=102">Change</a> <button type="button" class="btn" onclick="cancelBooking(this)">Cancel</button></td></tr>
+      <tr><td>Peak Fitness</td><td>Personal Training</td><td>Nov 24, 7:00 AM</td><td class="status confirmed">Confirmed</td><td><a class="btn" href="book.html?appointment=103">Change</a> <button type="button" class="btn" onclick="cancelBooking(this)">Cancel</button></td></tr>
+    </table>
+    <a class="btn blue" href="index.html">Book Something New</a>
+  </main>
+
+  <footer>QUEUE - CIS 444 Group 10 - Clemens, Delacruz, Dollete, Ohaechesi</footer>
+</body>
+</html>

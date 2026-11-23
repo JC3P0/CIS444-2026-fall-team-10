@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>QUEUE - Home</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div class="role">PUBLIC VIEW</div>
+  <header>
+    <a href="index.html" class="logo"><img src="images/logo.svg" alt="QUEUE logo">QUEUE</a>
+    <nav>
+      <a href="index.html" class="current">Home</a>
+      <a href="my_bookings.html">My Bookings</a>
+      <a href="owner.html">Dashboard</a>
+      <a href="admin.html">Admin</a>
+      <a href="login.html">Log In</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Book local businesses online</h1>
+    <p class="muted">Find a barbershop, restaurant or gym and reserve an open time.</p>
+
+    <!-- DB: search will query the businesses table (name, category) -->
+    <form class="row" action="index.html" method="get" onsubmit="return searchBusinesses()">
+      <input type="text" id="search" name="q" placeholder="Search a business or service" aria-label="Search" onkeyup="searchBusinesses()">
+      <input type="submit" class="btn blue" value="Search">
+    </form>
+
+    <h2>Businesses</h2>
+    <!-- DB: one box per row in businesses where status = 'approved' -->
+    <div class="box row business" data-name="fresh cutz barbershop barber">
+      <div class="thumb">FC</div>
+      <div class="grow">
+        <h3>Fresh Cutz Barbershop</h3>
+        <p class="muted">Barber - 123 Main St - Mon-Sat 9 AM to 7 PM</p>
+      </div>
+      <a class="btn blue" href="book.html?business=1">View and Book</a>
+    </div>
+    <div class="box row business" data-name="luna's kitchen restaurant">
+      <div class="thumb">LK</div>
+      <div class="grow">
+        <h3>Luna's Kitchen</h3>
+        <p class="muted">Restaurant - 48 Oak Ave - Daily 11 AM to 10 PM</p>
+      </div>
+      <a class="btn blue" href="book.html?business=2">View and Book</a>
+    </div>
+    <div class="box row business" data-name="peak fitness fitness">
+      <div class="thumb">PF</div>
+      <div class="grow">
+        <h3>Peak Fitness</h3>
+        <p class="muted">Fitness - 900 Summit Blvd - Daily 5 AM to 11 PM</p>
+      </div>
+      <a class="btn blue" href="book.html?business=3">View and Book</a>
+    </div>
+    <p id="noResults" class="muted">No businesses match your search.</p>
+  </main>
+
+  <footer>QUEUE - CIS 444 Group 10 - Clemens, Delacruz, Dollete, Ohaechesi</footer>
+</body>
+</html>

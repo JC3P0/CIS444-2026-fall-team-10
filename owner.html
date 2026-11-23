@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>QUEUE - Business Dashboard</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div class="role">BUSINESS OWNER VIEW</div>
+  <header>
+    <a href="index.html" class="logo"><img src="images/logo.svg" alt="QUEUE logo">QUEUE</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="my_bookings.html">My Bookings</a>
+      <a href="owner.html" class="current">Dashboard</a>
+      <a href="admin.html">Admin</a>
+      <a href="login.html">Log In</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Fresh Cutz - Today's Schedule</h1>
+
+    <!-- DB: today's appointments for this business. Buttons will update appointments.status -->
+    <table>
+      <tr><th scope="col">Time</th><th scope="col">Customer</th><th scope="col">Service</th><th scope="col">Status</th><th scope="col"></th></tr>
+      <tr><td>9:00 AM</td><td>J. Lee</td><td>Haircut</td><td class="status confirmed">Confirmed</td><td><button type="button" class="btn" onclick="setStatus(this, 'done')">Done</button> <button type="button" class="btn" onclick="setStatus(this, 'cancelled')">Cancel</button></td></tr>
+      <tr><td>11:00 AM</td><td>M. Patel</td><td>Beard Trim</td><td class="status pending">Pending</td><td><button type="button" class="btn blue" onclick="setStatus(this, 'confirmed')">Accept</button> <button type="button" class="btn" onclick="setStatus(this, 'declined')">Decline</button></td></tr>
+      <tr><td>3:30 PM</td><td>A. Rivera</td><td>Haircut</td><td class="status pending">Pending</td><td><button type="button" class="btn blue" onclick="setStatus(this, 'confirmed')">Accept</button> <button type="button" class="btn" onclick="setStatus(this, 'declined')">Decline</button></td></tr>
+    </table>
+
+    <div class="row top">
+      <!-- DB: php/add_service.php adds a row to the services table -->
+      <form class="box grow" action="php/add_service.php" method="post" onsubmit="return addService()">
+        <h2>My Services</h2>
+        <table id="services">
+          <tr><th scope="col">Service</th><th scope="col">Minutes</th><th scope="col">Price</th></tr>
+          <tr><td>Haircut</td><td>30</td><td>$30</td></tr>
+          <tr><td>Beard Trim</td><td>15</td><td>$15</td></tr>
+          <tr><td>Kids Cut</td><td>20</td><td>$20</td></tr>
+        </table>
+        <label for="svcName">New service name</label>
+        <input type="text" id="svcName" name="name">
+        <label for="svcMinutes">Minutes</label>
+        <input type="number" id="svcMinutes" name="minutes" min="5">
+        <label for="svcPrice">Price ($)</label>
+        <input type="number" id="svcPrice" name="price" min="0">
+        <p class="error" id="serviceError"></p>
+        <input type="submit" class="btn" value="Add Service">
+      </form>
+
+      <!-- DB: php/update_hours.php updates the business_hours table -->
+      <form class="box grow" action="php/update_hours.php" method="post" onsubmit="return saveHours()">
+        <h2>Hours</h2>
+        <table>
+          <tr><th scope="col">Day</th><th scope="col">Open</th><th scope="col">Close</th></tr>
+          <tr><td>Mon-Fri</td><td><input type="time" name="weekday_open" value="09:00" aria-label="Mon-Fri open"></td><td><input type="time" name="weekday_close" value="19:00" aria-label="Mon-Fri close"></td></tr>
+          <tr><td>Sat</td><td><input type="time" name="sat_open" value="09:00" aria-label="Saturday open"></td><td><input type="time" name="sat_close" value="17:00" aria-label="Saturday close"></td></tr>
+          <tr><td>Sun</td><td colspan="2">Closed</td></tr>
+        </table>
+        <input type="submit" class="btn" value="Save Hours">
+      </form>
+    </div>
+  </main>
+
+  <footer>QUEUE - CIS 444 Group 10 - Clemens, Delacruz, Dollete, Ohaechesi</footer>
+</body>
+</html>
