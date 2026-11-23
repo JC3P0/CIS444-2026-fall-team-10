@@ -1,3 +1,5 @@
+# QUEUE
+
 **Online booking for small businesses.** Customers find a barbershop, gym or
 restaurant, pick a service and an open time, and book it online - no phone
 calls. Business owners manage their schedule, services and hours, and an
@@ -28,9 +30,9 @@ The full script with sample data is in [`database/queue_db.sql`](database/queue_
 
 ## Run it locally
 1. Install [MAMP](https://www.mamp.info) (free) and click **Start**.
-2. Copy this folder into MAMP's `htdocs` folder.
+2. Copy this folder (`CIS444-2026-fall-team-10`) into MAMP's `htdocs` folder.
 3. Open phpMyAdmin -> **Import** -> choose `database/queue_db.sql`.
-4. Go to http://localhost:8888/QUEUE/
+4. Go to http://localhost:8888/CIS444-2026-fall-team-10/
 
 Database settings are in `php/config.php` (MAMP defaults).
 
